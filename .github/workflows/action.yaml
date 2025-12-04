@@ -10,10 +10,21 @@ on:
         type: string
    
 jobs:
-  eval:
+  eval-env:
     runs-on: "ubuntu-latest"
     env:
         COMPUTED: ${{ inputs.optional && format('{0}-', inputs.optional) || '' }}${{ inputs.required }}
     steps:
       - name: 'Eval'
         run: echo "Hello, ${COMPUTED}"
+  eval-bash:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: 'Eval in Bash'
+        run: |
+          prefix=""
+          if [ -n "${{ inputs.optional }}" ]; then
+            prefix="${{ inputs.optional }}-"
+          fi
+          COMPUTED="${prefix}${{ inputs.required }}"
+          echo "Hello, ${COMPUTED}"
