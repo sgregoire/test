@@ -15,7 +15,7 @@ jobs:
     name: Test
     runs-on: "ubuntu-latest"
     env:
-        COMPUTED: ${{ inputs.optional && inputs.optional + '-' || '' }}${{ inputs.required }}
+        COMPUTED: ${{ inputs.optional && format('{0}-', inputs.optional) || '' }}${{ inputs.required }}
     steps:
       - name: 'Eval'
         run: echo "Hello, ${COMPUTED}"
