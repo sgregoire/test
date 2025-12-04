@@ -7,9 +7,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    name: Test
+  with-optional:
     uses: ./.github/workflows/action.yaml
     with:
         required: "required-value"
         optional: "optional-value"
+  without-optional:
+    uses: ./.github/workflows/action.yaml
+    with:
+        required: "required-value"

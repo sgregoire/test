@@ -1,5 +1,4 @@
-name: Maven Microservice Continuous Integration
-
+name: Eval
 on:
   workflow_call:
     inputs:
@@ -11,8 +10,7 @@ on:
         type: string
    
 jobs:
-  setup:
-    name: Test
+  eval:
     runs-on: "ubuntu-latest"
     env:
         COMPUTED: ${{ inputs.optional && format('{0}-', inputs.optional) || '' }}${{ inputs.required }}
