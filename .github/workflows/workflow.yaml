@@ -1,4 +1,4 @@
-name: Maven CI + CD
+name: Run
 
 on:
   push:
