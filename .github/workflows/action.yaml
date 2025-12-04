@@ -1,0 +1,19 @@
+name: Maven Microservice Continuous Integration
+
+on:
+  workflow_call:
+    inputs:
+      required:
+        required: true
+        type: string
+      optional:
+        required: false
+        type: string
+   
+jobs:
+  setup:
+    name: Test
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: 'Eval'
+        run: echo "Hello, world!"
